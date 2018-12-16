@@ -9,6 +9,7 @@ rm -rf build/
 # builds a debian to build/distributions/*.deb
 # runs as root in the container for some build systems
 docker run -u root --rm \
+  -e PACKAGE_NAME="${APP_NAME}" \
   -e BUILD_NUMBER="${BUILD_NUMBER}" \
   -e BRANCH_NAME="${BRANCH_NAME}" \
   -v $(pwd)/.gradle-cache:/root/.gradle/ \
@@ -20,6 +21,7 @@ docker run -u root --rm \
 # builds an rpm to build/distributions/*.rpm
 # runs as root in the container for some build systems
 docker run -u root --rm \
+  -e PACKAGE_NAME="${APP_NAME}" \
   -e BUILD_NUMBER="${BUILD_NUMBER}" \
   -e BRANCH_NAME="${BRANCH_NAME}" \
   -v $(pwd)/.gradle-cache:/root/.gradle/ \
