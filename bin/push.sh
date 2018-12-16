@@ -20,6 +20,9 @@ curl -f -T ${DEB_FILE} \
   -u${BINTRAY_USER}:${BINTRAY_APIKEY} \
    "${BINTRAY_URL}/${APP_NAME}/${VERSION}/${DEB_FILE};${METADATA}"
 
+# This will store your package in the repository:
+# https://s3-us-west-2.amazonaws.com/armory-training-deb/armory-bootstrap-app stable main
+# https://username:apiKey@armory.bintray.com/armory-training stable main
 
 
 

@@ -21,7 +21,8 @@ node {
     }
 
     // The debian filepath in Groovy is:
-    // "build/distributions/spinnaker-config_0.${env.BUILD_NUMBER}.0-h${env.BUILD_NUMBER}.${env.BRANCH_NAME}_all.deb"
-
+    // "build/distributions/armory-bootstrap_0.${env.BUILD_NUMBER}.0-h${env.BUILD_NUMBER}.${env.BRANCH_NAME}_all.deb"
+    //
+    // The package name found in the artifacts will be the key used to search the debian repository (bintray/s3)
     archiveArtifacts artifacts: 'build/*, build/distributions/*.deb, build/distributions/*.rpm', fingerprint: true
 }
