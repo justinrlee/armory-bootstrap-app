@@ -6,12 +6,12 @@ source bin/env
 
 # Example using Bintray
 ##########################
-BINTRAY_REPO="armory/armory-training/${APP_NAME}" # your repo here
+BINTRAY_REPO="armory/armory-training" # your repo here
 # BINTRAY_USER=
 # BINTRAY_APIKEY=
 
 
-BINTRAY_URL="https://api.bintray.com/content/${BINTRAY_REPO}/debians"
+BINTRAY_URL="https://api.bintray.com/content/${BINTRAY_REPO}"
 DEB_FILE=$(ls build/distributions/*.deb)
 VERSION=$(echo "${DEB_FILE}" | cut -d _ -f 2)
 METADATA="deb_distribution=trusty;deb_component=main;publish=1;deb_architecture=i386,amd64"
