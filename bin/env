@@ -1,0 +1,4 @@
+APP_NAME=armory-bootstrap-app
+GIT_HASH=$(git rev-parse HEAD | cut -c -7)
+BUILD_NUMBER=${BUILD_NUMBER:-0}
+BRANCH_NAME=${BRANCH_NAME:-$GIT_HASH}

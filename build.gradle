@@ -29,33 +29,24 @@ ospackage {
 
   // this will create a file in build/distributions
   // that looks like <packageName>_<version>_<release>_<arch>.deb
-  packageName = "spinnaker-config"
+  packageName = "my-app"
   version = "0.${buildNumber}.0"
   release = "h${buildNumber}.${branchName}"
   user = 'root'
   permissionGroup = 'root'
-  arch = "all"
+  arch = "NOARCH"
 
-  // Package requirements
+  // Prerequisite package requirements, which will be installed before this app.deb gets installed
   requires('curl')
 
   // where to drop the configuration, artifacts which are created as part of the build
-  // from -> where the files are present after the build on Jenkins builder
-  // into -> where the files are expected to be after installing debian package
-
-  from('deb-config/spinnaker/compose/') {
-    into '/opt/spinnaker/compose/'
+  // - from field: where to find files afer /bin/build.sh has finished running
+  // - into field: where files will be installed onto the machine
+  from('src/nginx.conf') {
+    into '/etc/nginx/nginx.conf'
   }
 
-  from('deb-config/spinnaker/config/') {
-    into '/opt/spinnaker/config/'
-  }
-
-  from('deb-config/spinnaker/env/') {
-    into '/opt/spinnaker/env/'
-  }
-
-  // Things your package may need as root -> for example a system user for the app,
+  // A script you can run (as root) thats required for your application.
   // Log directory creation/permissions, etc.
-  postInstall file('deb-config/scripts/post-install.sh')
+  postInstall file('src/debian/post-install.sh')
 }

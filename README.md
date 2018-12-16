@@ -1,11 +1,10 @@
-# Spinnaker Config Debian Example
+# Bootstrapping an application
 
-This project is an example of a Spinnaker configuration that is bundled and
+This project can be used to bootstrap your application and
 distributed as a Debian package.  The build file is based on [Gradle Linux Packaging
-Plugin](https://github.com/nebula-plugins/gradle-ospackage-plugin).  
+Plugin](https://github.com/nebula-plugins/gradle-ospackage-plugin), which includes support for building RPM packages too.
 
-
-There's native support for Jenkins by using the Jenkinsfile and bintray. You'll need change the `./bin/push.sh` for it to work.
+Included is a Jenkinsfile to push to bintray. Take a look at `./bin/push.sh` to set your repository.
 
 
 ### Notable files & directories
@@ -18,7 +17,7 @@ There's native support for Jenkins by using the Jenkinsfile and bintray. You'll 
 installation. You'll want to want upload this to your central repository such as
 Artifactory
 
-`./build.gradle` - Describes how the Debian package will be created.  
+`./build.gradle` - Describes how the Debian package will be created. Applications files will be copied as stated in `./build.gradle`.
 
 `./deb-config/` - All the files and scripts that will be packaged up as part of
 the Debian process
