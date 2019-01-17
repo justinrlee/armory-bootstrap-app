@@ -9,7 +9,7 @@ node {
     }
 
 
-    if (env.BRANCH_NAME == "master") {
+    if (env.BRANCH_NAME == "disabled") {
       stage("Publish using curl") {
         sh '''#!/bin/bash +x
           . /mnt/secrets/bintray/bintray
